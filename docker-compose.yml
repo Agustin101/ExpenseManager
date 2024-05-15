@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: expense-manager-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=!P455w0rd
+    ports:
+      - "11433:1433"
+    volumes:
+      - sql-data:/var/opt/mssql
+volumes:
+  sql-data:
